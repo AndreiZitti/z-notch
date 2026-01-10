@@ -143,6 +143,14 @@
 		B1F747F92EC7E94000F841DB /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F747F82EC7E94000F841DB /* LottieView.swift */; };
 		B1FEB4992C7686630066EBBC /* PanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEB4982C7686630066EBBC /* PanGesture.swift */; };
 		F38DE6482D8243E7008B5C6D /* BatteryActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38DE6472D8243E2008B5C6D /* BatteryActivityManager.swift */; };
+		863153F686DF4A23A3F07D71 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED291207FC4FCFA60E870E /* AuthManager.swift */; };
+		2CFF9745D57349C991063347 /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B6FC0E12324DECAF0ECA69 /* SupabaseManager.swift */; };
+		EC085891D34F413EAA46C07E /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414C356D892C476D874716F8 /* AccountSettings.swift */; };
+		CD91FEBD60744E64A4985789 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8ED6CAA1954D9890EBDF7C /* LoginView.swift */; };
+		3041E4AC4F28404B938F393C /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1907D31C221647B287141731 /* Supabase */; };
+		9F1284A2EED44E90B2773014 /* AstroModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C808A916043C2BC276AA5 /* AstroModels.swift */; };
+		32FAF2635F264799BB585DE9 /* AstroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A69071FE44FC0AEA90DC7 /* AstroService.swift */; };
+		33B6F9D647BE46CDA44D4E9C /* AstroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565263665844E39AA1BACD4 /* AstroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +317,13 @@
 		B1F747F82EC7E94000F841DB /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B1FEB4982C7686630066EBBC /* PanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGesture.swift; sourceTree = "<group>"; };
 		F38DE6472D8243E2008B5C6D /* BatteryActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryActivityManager.swift; sourceTree = "<group>"; };
+		77ED291207FC4FCFA60E870E /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		71B6FC0E12324DECAF0ECA69 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		414C356D892C476D874716F8 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		3E8ED6CAA1954D9890EBDF7C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F70C808A916043C2BC276AA5 /* AstroModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroModels.swift; sourceTree = "<group>"; };
+		A10A69071FE44FC0AEA90DC7 /* AstroService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroService.swift; sourceTree = "<group>"; };
+		1565263665844E39AA1BACD4 /* AstroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -344,6 +359,7 @@
 				112B0EBB2E30DD5000562D6C /* MediaRemoteAdapter.framework in Frameworks */,
 				14D0321D2C68F3350096E6A1 /* Sparkle in Frameworks */,
 				111BEA6F2ED166E20079DD4E /* MacroVisionKit in Frameworks */,
+				3041E4AC4F28404B938F393C /* Supabase in Frameworks */,
 				11F748732EC9DA9300F841DB /* Lottie in Frameworks */,
 				14D0321A2C68F32E0096E6A1 /* LaunchAtLogin in Frameworks */,
 				111BEA512ECFBF7F0079DD4E /* MacroVisionKit in Frameworks */,
@@ -439,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				116398952DF5D6C00052E6AF /* CalendarServiceProviding.swift */,
+				71B6FC0E12324DECAF0ECA69 /* SupabaseManager.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -491,6 +508,8 @@
 				14C08BB72C8DE49E000F8AA0 /* Calendar */,
 				9A987A042C73CA66005CA465 /* Shelf */,
 				149E0B982C737D26006418B1 /* Webcam */,
+				553E42148C8A45B2AEFD6ECA /* Auth */,
+				E95B323CF2D14121A1ED2094 /* Astro */,
 				B18654312C6F45AE000B926A /* Live activities */,
 				B18654302C6F4590000B926A /* Settings */,
 				B186542F2C6F455E000B926A /* Notch */,
@@ -511,6 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				11D58EA12E760AE100FA8377 /* ImageService.swift */,
+				77ED291207FC4FCFA60E870E /* AuthManager.swift */,
 				F38DE6472D8243E2008B5C6D /* BatteryActivityManager.swift */,
 				112FB7342CCF16F70015238C /* NotchSpaceManager.swift */,
 				147163992C5D35FF0068B555 /* MusicManager.swift */,
@@ -530,6 +550,27 @@
 			path = Webcam;
 			sourceTree = "<group>";
 		};
+		553E42148C8A45B2AEFD6ECA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				414C356D892C476D874716F8 /* AccountSettings.swift */,
+				3E8ED6CAA1954D9890EBDF7C /* LoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E95B323CF2D14121A1ED2094 /* Astro */ = {
+			isa = PBXGroup;
+			children = (
+				F70C808A916043C2BC276AA5 /* AstroModels.swift */,
+				A10A69071FE44FC0AEA90DC7 /* AstroService.swift */,
+				1565263665844E39AA1BACD4 /* AstroView.swift */,
+			);
+			path = Astro;
+			sourceTree = "<group>";
+		};
+
+
 		14C08BB72C8DE49E000F8AA0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -814,6 +855,7 @@
 				111BEA502ECFBF7F0079DD4E /* MacroVisionKit */,
 				111BEA5E2ED07A340079DD4E /* MacroVisionKit */,
 				111BEA6E2ED166E20079DD4E /* MacroVisionKit */,
+				1907D31C221647B287141731 /* Supabase */,
 			);
 			productName = dynamicNotch;
 			productReference = 14CEF4122C5CAED300855D72 /* boringNotch.app */;
@@ -859,6 +901,7 @@
 				11F748712EC9DA9300F841DB /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				111BE95B2ECD71E10079DD4E /* XCRemoteSwiftPackageReference "AsyncXPCConnection" */,
 				111BEA6D2ED166E20079DD4E /* XCRemoteSwiftPackageReference "MacroVisionKit" */,
+				12E995D66A8442DBB69DF64F /* XCRemoteSwiftPackageReference "supabase-swift" */,
 			);
 			productRefGroup = 14CEF4132C5CAED300855D72 /* Products */;
 			projectDirPath = "";
@@ -1020,6 +1063,13 @@
 				1100290C2E847E2800035A57 /* NSItemProvider+LoadHelpers.swift in Sources */,
 				11CFC6632E09918400748C80 /* MusicControllerSelectionView.swift in Sources */,
 				B1F0A0022E60000100000001 /* BrightnessManager.swift in Sources */,
+				863153F686DF4A23A3F07D71 /* AuthManager.swift in Sources */,
+				2CFF9745D57349C991063347 /* SupabaseManager.swift in Sources */,
+				EC085891D34F413EAA46C07E /* AccountSettings.swift in Sources */,
+				CD91FEBD60744E64A4985789 /* LoginView.swift in Sources */,
+				9F1284A2EED44E90B2773014 /* AstroModels.swift in Sources */,
+				32FAF2635F264799BB585DE9 /* AstroService.swift in Sources */,
+				33B6F9D647BE46CDA44D4E9C /* AstroView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1436,6 +1486,14 @@
 				minimumVersion = 9.0.2;
 			};
 		};
+		12E995D66A8442DBB69DF64F /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1496,6 +1554,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B19016202CC15B3D00E3F12E /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		1907D31C221647B287141731 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12E995D66A8442DBB69DF64F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
