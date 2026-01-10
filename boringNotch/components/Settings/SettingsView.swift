@@ -60,6 +60,9 @@ struct SettingsView: View {
                 NavigationLink(value: "Advanced") {
                     Label("Advanced", systemImage: "gearshape.2")
                 }
+                NavigationLink(value: "Account") {
+                    Label("Account", systemImage: "person.circle")
+                }
                 NavigationLink(value: "About") {
                     Label("About", systemImage: "info.circle")
                 }
@@ -91,6 +94,8 @@ struct SettingsView: View {
                     GeneralSettings()
                 case "Advanced":
                     Advanced()
+                case "Account":
+                    AccountSettings()
                 case "About":
                     if let controller = updaterController {
                         About(updaterController: controller)
