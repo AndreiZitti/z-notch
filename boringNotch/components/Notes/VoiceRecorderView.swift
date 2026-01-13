@@ -6,28 +6,28 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct VoiceRecorderView: View {
     @ObservedObject private var audioService = AudioService.shared
     @State private var currentFileName: String?
     @State private var recordedDuration: TimeInterval = 0
+    @State private var hasCheckedPermission = false
     
     let onCancel: () -> Void
     let onSave: (String, TimeInterval) -> Void
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 8) {
             // Header with recording indicator
             HStack {
                 Button(action: cancel) {
                     HStack(spacing: 4) {
-                        Image(systemName: "xmark")
-                            .font(.body.weight(.medium))
+                        Image(systemName: "chevron.left")
+                        Text("Back")
                     }
-                    .foregroundColor(.white)
-                    .padding(8)
-                    .background(Color.secondary.opacity(0.3))
-                    .clipShape(Circle())
+                    .font(.callout)
+                    .foregroundColor(.accentColor)
                 }
                 .buttonStyle(.plain)
                 
@@ -43,8 +43,8 @@ struct VoiceRecorderView: View {
                             .font(.caption.weight(.bold))
                             .foregroundColor(.red)
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
                     .background(Color.red.opacity(0.2))
                     .clipShape(Capsule())
                 }
@@ -53,18 +53,12 @@ struct VoiceRecorderView: View {
                 
                 Button(action: save) {
                     Text("Done")
-                        .font(.callout.weight(.semibold))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .background(recordedDuration > 0 && !audioService.isRecording ? Color.accentColor : Color.secondary.opacity(0.3))
-                        .clipShape(Capsule())
+                        .font(.callout.weight(.medium))
+                        .foregroundColor(recordedDuration > 0 && !audioService.isRecording ? .accentColor : .secondary)
                 }
                 .buttonStyle(.plain)
                 .disabled(recordedDuration <= 0 || audioService.isRecording)
             }
-            .padding(.horizontal, 12)
-            .padding(.top, 8)
             
             Spacer()
             
@@ -107,7 +101,42 @@ struct VoiceRecorderView: View {
             
             Spacer()
         }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            if !hasCheckedPermission {
+                hasCheckedPermission = true
+                audioService.requestMicrophonePermission { granted in
+                    print("Microphone permission: \(granted)")
+                }
+            }
+        }
+        .overlay {
+            // Permission denied overlay
+            if audioService.permissionDenied {
+                VStack(spacing: 12) {
+                    Image(systemName: "mic.slash.fill")
+                        .font(.system(size: 32))
+                        .foregroundColor(.red)
+                    Text("Microphone Access Denied")
+                        .font(.headline)
+                    Text("Enable in System Settings → Privacy & Security → Microphone")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                    Button("Open Settings") {
+                        if let url = URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Microphone") {
+                            NSWorkspace.shared.open(url)
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.ultraThinMaterial)
+            }
+        }
     }
     
     private var hintText: String {

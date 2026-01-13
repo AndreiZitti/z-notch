@@ -40,9 +40,42 @@ class AudioService: NSObject, ObservableObject {
         super.init()
     }
     
+    // MARK: - Permission
+    
+    @Published var permissionGranted: Bool = false
+    @Published var permissionDenied: Bool = false
+    
+    func requestMicrophonePermission(completion: @escaping (Bool) -> Void) {
+        switch AVCaptureDevice.authorizationStatus(for: .audio) {
+        case .authorized:
+            permissionGranted = true
+            completion(true)
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .audio) { [weak self] granted in
+                Task { @MainActor in
+                    self?.permissionGranted = granted
+                    self?.permissionDenied = !granted
+                    completion(granted)
+                }
+            }
+        case .denied, .restricted:
+            permissionDenied = true
+            completion(false)
+        @unknown default:
+            completion(false)
+        }
+    }
+    
     // MARK: - Recording
     
     func startRecording() -> String? {
+        // Check permission first
+        let status = AVCaptureDevice.authorizationStatus(for: .audio)
+        guard status == .authorized else {
+            print("Microphone permission not granted. Status: \(status.rawValue)")
+            return nil
+        }
+        
         let fileName = UUID().uuidString + ".m4a"
         let fileURL = voiceNotesDirectory.appendingPathComponent(fileName)
         
@@ -56,7 +89,12 @@ class AudioService: NSObject, ObservableObject {
         do {
             audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
             audioRecorder?.isMeteringEnabled = true
-            audioRecorder?.record()
+            
+            let started = audioRecorder?.record() ?? false
+            if !started {
+                print("Failed to start recording")
+                return nil
+            }
             
             isRecording = true
             recordingTime = 0
@@ -65,6 +103,7 @@ class AudioService: NSObject, ObservableObject {
             // Start timers on main run loop
             startRecordingTimers()
             
+            print("Recording started: \(fileName)")
             return fileName
         } catch {
             print("Failed to start recording: \(error)")
