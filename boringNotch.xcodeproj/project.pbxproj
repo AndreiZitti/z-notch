@@ -111,6 +111,7 @@
 		3041E4AC4F28404B938F393C /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1907D31C221647B287141731 /* Supabase */; };
 		32FAF2635F264799BB585DE9 /* AstroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A69071FE44FC0AEA90DC7 /* AstroService.swift */; };
 		33B6F9D647BE46CDA44D4E9C /* AstroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565263665844E39AA1BACD4 /* AstroView.swift */; };
+		40A1AF693C90EA658139B989 /* VoicePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8820CDF4C6BE32B11941F /* VoicePlayerView.swift */; };
 		48F577E0D06E5858B53B965B /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E538EFC76D420F3BA0BB1 /* AudioService.swift */; };
 		507266DB2C908E2E00A2D00D /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507266DA2C908E2E00A2D00D /* HoverButton.swift */; };
 		5917FD112E57891600E87F1C /* MediaKeyInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917FD102E57891600E87F1C /* MediaKeyInterceptor.swift */; };
@@ -136,6 +137,7 @@
 		9A987A102C73CA8D005CA465 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 9A987A0F2C73CA8D005CA465 /* Collections */; };
 		9AB0C6BD2C73C9CB00F7CD30 /* NotchHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB0C6BB2C73C9CB00F7CD30 /* NotchHomeView.swift */; };
 		9F1284A2EED44E90B2773014 /* AstroModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70C808A916043C2BC276AA5 /* AstroModels.swift */; };
+		AA6BD6BFF07DE9DFC54B4BA0 /* VoicePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8820CDF4C6BE32B11941F /* VoicePlayerView.swift */; };
 		B10348D92C74E56000475897 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10348D82C74E56000475897 /* ConditionalModifier.swift */; };
 		B10F84A32C6C9596009F3026 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10F84A22C6C9596009F3026 /* TestView.swift */; };
 		B141C2412CA5F53F00AC8CC8 /* SparkleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B141C2402CA5F53E00AC8CC8 /* SparkleView.swift */; };
@@ -204,6 +206,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09B8820CDF4C6BE32B11941F /* VoicePlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoicePlayerView.swift; sourceTree = "<group>"; };
 		1100290B2E847E2800035A57 /* NSItemProvider+LoadHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSItemProvider+LoadHelpers.swift"; sourceTree = "<group>"; };
 		110029262E84FD4C00035A57 /* TemporaryFileStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryFileStorageService.swift; sourceTree = "<group>"; };
 		110029292E8691B400035A57 /* FileShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileShareView.swift; sourceTree = "<group>"; };
@@ -723,6 +726,7 @@
 				5D4933102F16BDF0004566FE /* NotesView.swift */,
 				429E538EFC76D420F3BA0BB1 /* AudioService.swift */,
 				F02C265EB01216E6E00DAF0D /* VoiceRecorderView.swift */,
+				09B8820CDF4C6BE32B11941F /* VoicePlayerView.swift */,
 			);
 			path = boringNotch/components/Notes;
 			sourceTree = "<group>";
@@ -1004,6 +1008,7 @@
 				5D49331B2F16BDF0004566FE /* NoteDetailView.swift in Sources */,
 				48F577E0D06E5858B53B965B /* AudioService.swift in Sources */,
 				726432234AD4FDFCAD79FA01 /* VoiceRecorderView.swift in Sources */,
+				40A1AF693C90EA658139B989 /* VoicePlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,6 +1146,7 @@
 				33B6F9D647BE46CDA44D4E9C /* AstroView.swift in Sources */,
 				7DD4AF083D13E13E49D636E4 /* AudioService.swift in Sources */,
 				7357AB55E34C35BA580000BE /* VoiceRecorderView.swift in Sources */,
+				AA6BD6BFF07DE9DFC54B4BA0 /* VoicePlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
