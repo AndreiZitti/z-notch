@@ -36,7 +36,6 @@
 		1153BD912D986DB300979FB0 /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BD902D986DB300979FB0 /* PlaybackState.swift */; };
 		1153BD932D986E4300979FB0 /* AppleMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BD922D986E4300979FB0 /* AppleMusicController.swift */; };
 		1153BD982D9881F900979FB0 /* AppleScriptHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BD972D9881F900979FB0 /* AppleScriptHelper.swift */; };
-		11C4D5E82E26F12300A1B2C3 /* DisplaySleepHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C4D5E72E26F12300A1B2C3 /* DisplaySleepHelper.swift */; };
 		1153BD9A2D98824300979FB0 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BD992D98824300979FB0 /* SpotifyController.swift */; };
 		1153BD9C2D98853B00979FB0 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BD9B2D98853B00979FB0 /* NowPlayingController.swift */; };
 		1153BDA72D99B22200979FB0 /* YouTubeMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BDA62D99B22200979FB0 /* YouTubeMusicController.swift */; };
@@ -58,6 +57,7 @@
 		1194E8872EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194E8862EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift */; };
 		1194E9402EACC652009C82D6 /* Color+AccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1194E93F2EACC652009C82D6 /* Color+AccentColor.swift */; };
 		11A45C792E34E63100CEB175 /* MediaChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A45C782E34E63100CEB175 /* MediaChecker.swift */; };
+		11C4D5E82E26F12300A1B2C3 /* ScreenLockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C4D5E72E26F12300A1B2C3 /* ScreenLockHelper.swift */; };
 		11C5E3132DFE85970065821E /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C5E3112DFE85970065821E /* SettingsWindowController.swift */; };
 		11C5E3162DFE88510065821E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C5E3152DFE88510065821E /* SettingsView.swift */; };
 		11CC44A22CEE614100C7244B /* BoringViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CC44A12CEE614100C7244B /* BoringViewCoordinator.swift */; };
@@ -125,6 +125,7 @@
 		5D4933192F16BDF0004566FE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49330C2F16BDF0004566FE /* Note.swift */; };
 		5D49331A2F16BDF0004566FE /* NotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49330F2F16BDF0004566FE /* NotesService.swift */; };
 		5D49331B2F16BDF0004566FE /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49330D2F16BDF0004566FE /* NoteDetailView.swift */; };
+		7DD4AF083D13E13E49D636E4 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E538EFC76D420F3BA0BB1 /* AudioService.swift */; };
 		863153F686DF4A23A3F07D71 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED291207FC4FCFA60E870E /* AuthManager.swift */; };
 		9A0887322C7A693000C160EA /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0887312C7A693000C160EA /* TabButton.swift */; };
 		9A0887352C7AFF8E00C160EA /* TabSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0887342C7AFF8E00C160EA /* TabSelectionView.swift */; };
@@ -225,7 +226,6 @@
 		1153BD902D986DB300979FB0 /* PlaybackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
 		1153BD922D986E4300979FB0 /* AppleMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicController.swift; sourceTree = "<group>"; };
 		1153BD972D9881F900979FB0 /* AppleScriptHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptHelper.swift; sourceTree = "<group>"; };
-		11C4D5E72E26F12300A1B2C3 /* DisplaySleepHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySleepHelper.swift; sourceTree = "<group>"; };
 		1153BD992D98824300979FB0 /* SpotifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
 		1153BD9B2D98853B00979FB0 /* NowPlayingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingController.swift; sourceTree = "<group>"; };
 		1153BDA62D99B22200979FB0 /* YouTubeMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMusicController.swift; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 		1194E8862EA6DDA7009C82D6 /* BoringNotchSkyLightWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringNotchSkyLightWindow.swift; sourceTree = "<group>"; };
 		1194E93F2EACC652009C82D6 /* Color+AccentColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+AccentColor.swift"; sourceTree = "<group>"; };
 		11A45C782E34E63100CEB175 /* MediaChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaChecker.swift; sourceTree = "<group>"; };
+		11C4D5E72E26F12300A1B2C3 /* ScreenLockHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenLockHelper.swift; sourceTree = "<group>"; };
 		11C5E3112DFE85970065821E /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		11C5E3152DFE88510065821E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		11CC44A12CEE614100C7244B /* BoringViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringViewCoordinator.swift; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 		1565263665844E39AA1BACD4 /* AstroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroView.swift; sourceTree = "<group>"; };
 		3E8ED6CAA1954D9890EBDF7C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		414C356D892C476D874716F8 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		429E538EFC76D420F3BA0BB1 /* AudioService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		507266DA2C908E2E00A2D00D /* HoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverButton.swift; sourceTree = "<group>"; };
 		5917FD102E57891600E87F1C /* MediaKeyInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyInterceptor.swift; sourceTree = "<group>"; };
 		5955950C2E900ED800C66711 /* ApplicationRelauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRelauncher.swift; sourceTree = "<group>"; };
@@ -344,7 +346,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		11F7485C2EC9AABA00F841DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		11F7485C2EC9AABA00F841DB /* Exceptions for "BoringNotchXPCHelper" folder in "BoringNotchXPCHelper" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -354,8 +356,29 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		112FB72F2CCF12CC0015238C /* private */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = private; sourceTree = "<group>"; };
-		11F748502EC9AABA00F841DB /* BoringNotchXPCHelper */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (11F7485C2EC9AABA00F841DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = BoringNotchXPCHelper; sourceTree = "<group>"; };
+		112FB72F2CCF12CC0015238C /* private */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = private;
+			sourceTree = "<group>";
+		};
+		11F748502EC9AABA00F841DB /* BoringNotchXPCHelper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				11F7485C2EC9AABA00F841DB /* Exceptions for "BoringNotchXPCHelper" folder in "BoringNotchXPCHelper" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = BoringNotchXPCHelper;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,7 +515,7 @@
 				118EBE242E92DCCB00D54B5A /* AssociatedObject.swift */,
 				11A45C782E34E63100CEB175 /* MediaChecker.swift */,
 				1153BD972D9881F900979FB0 /* AppleScriptHelper.swift */,
-				11C4D5E72E26F12300A1B2C3 /* DisplaySleepHelper.swift */,
+				11C4D5E72E26F12300A1B2C3 /* ScreenLockHelper.swift */,
 				14288DD62C6E015000B9F80C /* AudioPlayer.swift */,
 				5955950C2E900ED800C66711 /* ApplicationRelauncher.swift */,
 				14288E0B2C6F8EC000B9F80C /* AppIcons.swift */,
@@ -694,6 +717,7 @@
 				5D49330E2F16BDF0004566FE /* NoteRowView.swift */,
 				5D49330F2F16BDF0004566FE /* NotesService.swift */,
 				5D4933102F16BDF0004566FE /* NotesView.swift */,
+				429E538EFC76D420F3BA0BB1 /* AudioService.swift */,
 			);
 			path = boringNotch/components/Notes;
 			sourceTree = "<group>";
@@ -846,8 +870,6 @@
 				11F748502EC9AABA00F841DB /* BoringNotchXPCHelper */,
 			);
 			name = BoringNotchXPCHelper;
-			packageProductDependencies = (
-			);
 			productName = BoringNotchXPCHelper;
 			productReference = 11F7484F2EC9AABA00F841DB /* BoringNotchXPCHelper.xpc */;
 			productType = "com.apple.product-type.xpc-service";
@@ -1090,7 +1112,7 @@
 				112FB7352CCF16F70015238C /* NotchSpaceManager.swift in Sources */,
 				14FC6E502C7DED5600C7BEA5 /* DataTypes+Extensions.swift in Sources */,
 				1153BD982D9881F900979FB0 /* AppleScriptHelper.swift in Sources */,
-				11C4D5E82E26F12300A1B2C3 /* DisplaySleepHelper.swift in Sources */,
+				11C4D5E82E26F12300A1B2C3 /* ScreenLockHelper.swift in Sources */,
 				11CFC6612E097F6800748C80 /* PermissionsRequestView.swift in Sources */,
 				14D570D22C5F6C6A0011E668 /* BoringExtrasMenu.swift in Sources */,
 				11D58EA22E760AE100FA8377 /* ImageService.swift in Sources */,
@@ -1110,6 +1132,7 @@
 				9F1284A2EED44E90B2773014 /* AstroModels.swift in Sources */,
 				32FAF2635F264799BB585DE9 /* AstroService.swift in Sources */,
 				33B6F9D647BE46CDA44D4E9C /* AstroView.swift in Sources */,
+				7DD4AF083D13E13E49D636E4 /* AudioService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
