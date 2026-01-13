@@ -25,6 +25,7 @@ struct AstroView: View {
                 placesGrid
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
         .task {
@@ -101,6 +102,7 @@ struct AstroView: View {
             }
             .padding(.horizontal, 4)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

@@ -8,6 +8,9 @@
 import Cocoa
 
 class BoringNotchWindow: NSPanel {
+    /// Set to true when text input is needed (e.g., Notes editor)
+    var allowsKeyboardInput: Bool = false
+    
     override init(
         contentRect: NSRect,
         styleMask: NSWindow.StyleMask,
@@ -41,7 +44,7 @@ class BoringNotchWindow: NSPanel {
     }
     
     override var canBecomeKey: Bool {
-        false
+        allowsKeyboardInput
     }
     
     override var canBecomeMain: Bool {
