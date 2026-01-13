@@ -10,6 +10,7 @@ import AVFoundation
 import Speech
 import Combine
 
+@MainActor
 class AudioService: NSObject, ObservableObject {
     static let shared = AudioService()
     
@@ -59,24 +60,36 @@ class AudioService: NSObject, ObservableObject {
             
             isRecording = true
             recordingTime = 0
+            audioLevel = 0
             
-            // Update recording time
-            recordingTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-                self?.recordingTime += 0.1
-            }
-            
-            // Update audio levels
-            levelTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
-                self?.audioRecorder?.updateMeters()
-                let level = self?.audioRecorder?.averagePower(forChannel: 0) ?? -160
-                // Normalize from dB (-160 to 0) to 0-1 range
-                self?.audioLevel = max(0, (level + 50) / 50)
-            }
+            // Start timers on main run loop
+            startRecordingTimers()
             
             return fileName
         } catch {
             print("Failed to start recording: \(error)")
             return nil
+        }
+    }
+    
+    private func startRecordingTimers() {
+        // Update recording time every 0.1 seconds
+        recordingTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                self?.recordingTime += 0.1
+            }
+        }
+        
+        // Update audio levels every 0.05 seconds
+        levelTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                guard let self = self, let recorder = self.audioRecorder else { return }
+                recorder.updateMeters()
+                let power = recorder.averagePower(forChannel: 0)
+                // Normalize from dB (-60 to 0) to 0-1 range
+                let normalizedLevel = max(0, min(1, (power + 60) / 60))
+                self.audioLevel = normalizedLevel
+            }
         }
     }
     

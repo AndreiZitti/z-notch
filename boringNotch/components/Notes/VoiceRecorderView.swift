@@ -10,33 +10,58 @@ import SwiftUI
 struct VoiceRecorderView: View {
     @ObservedObject private var audioService = AudioService.shared
     @State private var currentFileName: String?
+    @State private var recordedDuration: TimeInterval = 0
     
     let onCancel: () -> Void
     let onSave: (String, TimeInterval) -> Void
     
     var body: some View {
-        VStack(spacing: 16) {
-            // Header
+        VStack(spacing: 12) {
+            // Header with recording indicator
             HStack {
                 Button(action: cancel) {
                     HStack(spacing: 4) {
-                        Image(systemName: "chevron.left")
-                        Text("Back")
+                        Image(systemName: "xmark")
+                            .font(.body.weight(.medium))
                     }
-                    .font(.callout)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(Color.secondary.opacity(0.3))
+                    .clipShape(Circle())
                 }
                 .buttonStyle(.plain)
                 
                 Spacer()
                 
+                // Recording indicator
+                if audioService.isRecording {
+                    HStack(spacing: 6) {
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 8, height: 8)
+                        Text("REC")
+                            .font(.caption.weight(.bold))
+                            .foregroundColor(.red)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 4)
+                    .background(Color.red.opacity(0.2))
+                    .clipShape(Capsule())
+                }
+                
+                Spacer()
+                
                 Button(action: save) {
                     Text("Done")
-                        .font(.callout.weight(.medium))
-                        .foregroundColor(currentFileName != nil && !audioService.isRecording ? .accentColor : .secondary)
+                        .font(.callout.weight(.semibold))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(recordedDuration > 0 && !audioService.isRecording ? Color.accentColor : Color.secondary.opacity(0.3))
+                        .clipShape(Capsule())
                 }
                 .buttonStyle(.plain)
-                .disabled(currentFileName == nil || audioService.isRecording)
+                .disabled(recordedDuration <= 0 || audioService.isRecording)
             }
             .padding(.horizontal, 12)
             .padding(.top, 8)
@@ -45,17 +70,25 @@ struct VoiceRecorderView: View {
             
             // Waveform visualization
             WaveformView(level: audioService.audioLevel, isActive: audioService.isRecording)
-                .frame(height: 40)
-                .padding(.horizontal, 20)
+                .frame(height: 50)
+                .padding(.horizontal, 16)
             
-            // Timer
-            Text(formatTime(audioService.recordingTime))
-                .font(.system(size: 24, weight: .light, design: .monospaced))
-                .foregroundColor(.primary)
+            // Timer - larger and more prominent when recording
+            Text(formatTime(audioService.isRecording ? audioService.recordingTime : recordedDuration))
+                .font(.system(size: audioService.isRecording ? 32 : 24, weight: .light, design: .monospaced))
+                .foregroundColor(audioService.isRecording ? .red : .primary)
+                .animation(.easeInOut(duration: 0.2), value: audioService.isRecording)
             
-            // Record button
+            // Record button with pulse animation
             Button(action: toggleRecording) {
                 ZStack {
+                    // Pulse ring when recording
+                    if audioService.isRecording {
+                        Circle()
+                            .stroke(Color.red.opacity(0.3), lineWidth: 4)
+                            .frame(width: 76, height: 76)
+                    }
+                    
                     Circle()
                         .fill(audioService.isRecording ? Color.red : Color(nsColor: .controlBackgroundColor))
                         .frame(width: 64, height: 64)
@@ -68,7 +101,7 @@ struct VoiceRecorderView: View {
             .buttonStyle(.plain)
             
             // Hint text
-            Text(audioService.isRecording ? "Tap to stop" : (currentFileName != nil ? "Tap Done to save" : "Tap to record"))
+            Text(hintText)
                 .font(.caption)
                 .foregroundColor(.secondary)
             
@@ -77,11 +110,22 @@ struct VoiceRecorderView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
+    private var hintText: String {
+        if audioService.isRecording {
+            return "Tap to stop recording"
+        } else if recordedDuration > 0 {
+            return "Tap Done to save, or record again"
+        } else {
+            return "Tap the microphone to start"
+        }
+    }
+    
     private func toggleRecording() {
         if audioService.isRecording {
-            _ = audioService.stopRecording()
+            recordedDuration = audioService.stopRecording()
         } else {
             currentFileName = audioService.startRecording()
+            recordedDuration = 0
         }
     }
     
@@ -96,7 +140,8 @@ struct VoiceRecorderView: View {
     
     private func save() {
         guard let fileName = currentFileName else { return }
-        let duration = audioService.recordingTime
+        // Use stored duration (captured when recording stopped)
+        let duration = recordedDuration > 0 ? recordedDuration : audioService.recordingTime
         onSave(fileName, duration)
     }
     
