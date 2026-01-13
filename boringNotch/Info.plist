@@ -19,5 +19,9 @@
 	<array>
 		<dict/>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>boringNotch needs microphone access to record voice notes.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>boringNotch uses speech recognition to transcribe voice notes.</string>
 </dict>
 </plist>
