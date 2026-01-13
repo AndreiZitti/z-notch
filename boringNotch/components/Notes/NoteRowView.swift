@@ -17,6 +17,12 @@ struct NoteRowView: View {
     
     var body: some View {
         HStack(spacing: 8) {
+            // Type icon
+            Image(systemName: note.type == .voice ? "mic.fill" : "note.text")
+                .font(.caption)
+                .foregroundColor(note.type == .voice ? .red : .secondary)
+                .frame(width: 14)
+            
             // Pin indicator
             if note.isPinned {
                 Image(systemName: "pin.fill")
@@ -43,6 +49,17 @@ struct NoteRowView: View {
             }
             
             Spacer(minLength: 4)
+            
+            // Duration for voice notes
+            if note.type == .voice, !note.formattedDuration.isEmpty {
+                Text(note.formattedDuration)
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 2)
+                    .background(Color.red.opacity(0.15))
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
+            }
             
             // Time ago
             Text(note.timeAgo)
