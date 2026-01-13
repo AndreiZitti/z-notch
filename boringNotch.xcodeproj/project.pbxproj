@@ -126,6 +126,8 @@
 		5D4933192F16BDF0004566FE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49330C2F16BDF0004566FE /* Note.swift */; };
 		5D49331A2F16BDF0004566FE /* NotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49330F2F16BDF0004566FE /* NotesService.swift */; };
 		5D49331B2F16BDF0004566FE /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49330D2F16BDF0004566FE /* NoteDetailView.swift */; };
+		726432234AD4FDFCAD79FA01 /* VoiceRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02C265EB01216E6E00DAF0D /* VoiceRecorderView.swift */; };
+		7357AB55E34C35BA580000BE /* VoiceRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02C265EB01216E6E00DAF0D /* VoiceRecorderView.swift */; };
 		7DD4AF083D13E13E49D636E4 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E538EFC76D420F3BA0BB1 /* AudioService.swift */; };
 		863153F686DF4A23A3F07D71 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED291207FC4FCFA60E870E /* AuthManager.swift */; };
 		9A0887322C7A693000C160EA /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0887312C7A693000C160EA /* TabButton.swift */; };
@@ -342,6 +344,7 @@
 		B1F0A0012E60000100000001 /* BrightnessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessManager.swift; sourceTree = "<group>"; };
 		B1F747F82EC7E94000F841DB /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B1FEB4982C7686630066EBBC /* PanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGesture.swift; sourceTree = "<group>"; };
+		F02C265EB01216E6E00DAF0D /* VoiceRecorderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceRecorderView.swift; sourceTree = "<group>"; };
 		F38DE6472D8243E2008B5C6D /* BatteryActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryActivityManager.swift; sourceTree = "<group>"; };
 		F70C808A916043C2BC276AA5 /* AstroModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -719,6 +722,7 @@
 				5D49330F2F16BDF0004566FE /* NotesService.swift */,
 				5D4933102F16BDF0004566FE /* NotesView.swift */,
 				429E538EFC76D420F3BA0BB1 /* AudioService.swift */,
+				F02C265EB01216E6E00DAF0D /* VoiceRecorderView.swift */,
 			);
 			path = boringNotch/components/Notes;
 			sourceTree = "<group>";
@@ -999,6 +1003,7 @@
 				5D49331A2F16BDF0004566FE /* NotesService.swift in Sources */,
 				5D49331B2F16BDF0004566FE /* NoteDetailView.swift in Sources */,
 				48F577E0D06E5858B53B965B /* AudioService.swift in Sources */,
+				726432234AD4FDFCAD79FA01 /* VoiceRecorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1135,6 +1140,7 @@
 				32FAF2635F264799BB585DE9 /* AstroService.swift in Sources */,
 				33B6F9D647BE46CDA44D4E9C /* AstroView.swift in Sources */,
 				7DD4AF083D13E13E49D636E4 /* AudioService.swift in Sources */,
+				7357AB55E34C35BA580000BE /* VoiceRecorderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
