@@ -53,6 +53,18 @@ class NotesService: ObservableObject {
         return note
     }
     
+    /// Creates a new voice note with audio file reference
+    func createVoiceNote(audioFileName: String, duration: TimeInterval) -> Note {
+        let note = Note(
+            type: .voice,
+            audioFileName: audioFileName,
+            audioDuration: duration
+        )
+        notes.insert(note, at: 0)
+        debouncedSave()
+        return note
+    }
+    
     /// Updates an existing note
     func updateNote(_ note: Note) {
         guard let index = notes.firstIndex(where: { $0.id == note.id }) else { return }
@@ -62,10 +74,25 @@ class NotesService: ObservableObject {
         debouncedSave()
     }
     
+    /// Updates the transcript for a voice note
+    func updateTranscript(id: UUID, transcript: String) {
+        if let index = notes.firstIndex(where: { $0.id == id }) {
+            notes[index].content = transcript
+            notes[index].modifiedAt = Date()
+            debouncedSave()
+        }
+    }
+    
     /// Deletes a note by ID
     func deleteNote(id: UUID) {
-        notes.removeAll { $0.id == id }
-        save()
+        if let note = notes.first(where: { $0.id == id }) {
+            // Clean up audio file for voice notes
+            if let audioFileName = note.audioFileName {
+                AudioService.shared.deleteAudioFile(fileName: audioFileName)
+            }
+            notes.removeAll { $0.id == id }
+            save()
+        }
     }
     
     /// Toggles pin status for a note

@@ -111,6 +111,7 @@
 		3041E4AC4F28404B938F393C /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1907D31C221647B287141731 /* Supabase */; };
 		32FAF2635F264799BB585DE9 /* AstroService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10A69071FE44FC0AEA90DC7 /* AstroService.swift */; };
 		33B6F9D647BE46CDA44D4E9C /* AstroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565263665844E39AA1BACD4 /* AstroView.swift */; };
+		48F577E0D06E5858B53B965B /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E538EFC76D420F3BA0BB1 /* AudioService.swift */; };
 		507266DB2C908E2E00A2D00D /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507266DA2C908E2E00A2D00D /* HoverButton.swift */; };
 		5917FD112E57891600E87F1C /* MediaKeyInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917FD102E57891600E87F1C /* MediaKeyInterceptor.swift */; };
 		5955950D2E900ED800C66711 /* ApplicationRelauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955950C2E900ED800C66711 /* ApplicationRelauncher.swift */; };
@@ -997,6 +998,7 @@
 				5D4933192F16BDF0004566FE /* Note.swift in Sources */,
 				5D49331A2F16BDF0004566FE /* NotesService.swift in Sources */,
 				5D49331B2F16BDF0004566FE /* NoteDetailView.swift in Sources */,
+				48F577E0D06E5858B53B965B /* AudioService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
