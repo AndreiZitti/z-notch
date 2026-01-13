@@ -1184,6 +1184,9 @@ struct Appearance: View {
                 Defaults.Toggle(key: .settingsIconInNotch) {
                     Text("Show settings icon in notch")
                 }
+                Defaults.Toggle(key: .showSleepButton) {
+                    Text("Show sleep display button")
+                }
 
             } header: {
                 Text("General")

@@ -58,6 +58,22 @@ struct BoringHeader: View {
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
+                        if Defaults[.showSleepButton] {
+                            Button(action: {
+                                DisplaySleepHelper.sleepDisplay()
+                            }) {
+                                Capsule()
+                                    .fill(.black)
+                                    .frame(width: 30, height: 30)
+                                    .overlay {
+                                        Image(systemName: "moon.fill")
+                                            .foregroundColor(.white)
+                                            .padding()
+                                            .imageScale(.medium)
+                                    }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
                         if Defaults[.settingsIconInNotch] {
                             Button(action: {
                                 SettingsWindowController.shared.showWindow()
