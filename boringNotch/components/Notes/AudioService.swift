@@ -89,10 +89,11 @@ class AudioService: NSObject, ObservableObject {
         do {
             audioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
             audioRecorder?.isMeteringEnabled = true
+            audioRecorder?.prepareToRecord()  // Important: prepare before recording
             
             let started = audioRecorder?.record() ?? false
             if !started {
-                print("Failed to start recording")
+                print("Failed to start recording - record() returned false")
                 return nil
             }
             
@@ -103,10 +104,10 @@ class AudioService: NSObject, ObservableObject {
             // Start timers on main run loop
             startRecordingTimers()
             
-            print("Recording started: \(fileName)")
+            print("Recording started successfully: \(fileName) at \(fileURL.path)")
             return fileName
         } catch {
-            print("Failed to start recording: \(error)")
+            print("Failed to create AVAudioRecorder: \(error)")
             return nil
         }
     }
@@ -119,14 +120,15 @@ class AudioService: NSObject, ObservableObject {
             }
         }
         
-        // Update audio levels every 0.05 seconds
-        levelTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+        // Update audio levels every 0.05 seconds - more sensitive
+        levelTimer = Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { [weak self] _ in
             Task { @MainActor in
-                guard let self = self, let recorder = self.audioRecorder else { return }
+                guard let self = self, let recorder = self.audioRecorder, recorder.isRecording else { return }
                 recorder.updateMeters()
                 let power = recorder.averagePower(forChannel: 0)
-                // Normalize from dB (-60 to 0) to 0-1 range
-                let normalizedLevel = max(0, min(1, (power + 60) / 60))
+                // More sensitive: normalize from dB (-50 to 0) to 0-1 range
+                // Typical speech is around -20 to -10 dB
+                let normalizedLevel = max(0, min(1, (power + 50) / 50))
                 self.audioLevel = normalizedLevel
             }
         }
