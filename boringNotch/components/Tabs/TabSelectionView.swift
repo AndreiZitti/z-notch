@@ -18,6 +18,7 @@ let tabs = [
     TabModel(label: "Home", icon: "house.fill", view: .home),
     TabModel(label: "Shelf", icon: "tray.fill", view: .shelf),
     TabModel(label: "Notes", icon: "note.text", view: .notes),
+    TabModel(label: "Activity", icon: "chart.bar.fill", view: .activity),
     TabModel(label: "Astro", icon: "z.circle.fill", view: .astro)
 ]
 

@@ -349,6 +349,8 @@ struct ContentView: View {
                         ShelfView()
                     case .notes:
                         NotesView()
+                    case .activity:
+                        ActivityView()
                     case .astro:
                         AstroView()
                     }
